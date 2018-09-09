@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		081E96F028A28E73EBF40005 /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 181682F5B62A6F801C9B9AF2 /* Pods_Smack.framework */; };
 		B5110378213F7D1900E6E7AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5110377213F7D1900E6E7AB /* AppDelegate.swift */; };
-		B511037A213F7D1900E6E7AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5110379213F7D1900E6E7AB /* ViewController.swift */; };
+		B511037A213F7D1900E6E7AB /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5110379213F7D1900E6E7AB /* ChatVC.swift */; };
 		B511037D213F7D1900E6E7AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B511037B213F7D1900E6E7AB /* Main.storyboard */; };
 		B511037F213F7D1B00E6E7AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B511037E213F7D1B00E6E7AB /* Assets.xcassets */; };
 		B5110382213F7D1B00E6E7AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5110380213F7D1B00E6E7AB /* LaunchScreen.storyboard */; };
+		B511038D213F8CA300E6E7AB /* LeftSideMenuNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B511038C213F8CA300E6E7AB /* LeftSideMenuNavController.swift */; };
+		B511038F21458C6C00E6E7AB /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B511038E21458C6C00E6E7AB /* ChannelVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +22,13 @@
 		181682F5B62A6F801C9B9AF2 /* Pods_Smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5110374213F7D1900E6E7AB /* Smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5110377213F7D1900E6E7AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5110379213F7D1900E6E7AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5110379213F7D1900E6E7AB /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		B511037C213F7D1900E6E7AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B511037E213F7D1B00E6E7AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5110381213F7D1B00E6E7AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5110383213F7D1B00E6E7AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B511038C213F8CA300E6E7AB /* LeftSideMenuNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuNavController.swift; sourceTree = "<group>"; };
+		B511038E21458C6C00E6E7AB /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		EBBC27F6C64032EE44CF2836 /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,14 +73,41 @@
 		B5110376213F7D1900E6E7AB /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				B511038B213F8C3E00E6E7AB /* Model */,
+				B511038A213F8C3A00E6E7AB /* View */,
+				B5110389213F8C2400E6E7AB /* Controller */,
 				B5110377213F7D1900E6E7AB /* AppDelegate.swift */,
-				B5110379213F7D1900E6E7AB /* ViewController.swift */,
 				B511037B213F7D1900E6E7AB /* Main.storyboard */,
 				B511037E213F7D1B00E6E7AB /* Assets.xcassets */,
 				B5110380213F7D1B00E6E7AB /* LaunchScreen.storyboard */,
 				B5110383213F7D1B00E6E7AB /* Info.plist */,
 			);
 			path = Smack;
+			sourceTree = "<group>";
+		};
+		B5110389213F8C2400E6E7AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5110379213F7D1900E6E7AB /* ChatVC.swift */,
+				B511038E21458C6C00E6E7AB /* ChannelVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B511038A213F8C3A00E6E7AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B511038C213F8CA300E6E7AB /* LeftSideMenuNavController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B511038B213F8C3E00E6E7AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		B95DF9472C060B370FE75A6E /* Pods */ = {
@@ -208,7 +239,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B511037A213F7D1900E6E7AB /* ViewController.swift in Sources */,
+				B511038F21458C6C00E6E7AB /* ChannelVC.swift in Sources */,
+				B511037A213F7D1900E6E7AB /* ChatVC.swift in Sources */,
+				B511038D213F8CA300E6E7AB /* LeftSideMenuNavController.swift in Sources */,
 				B5110378213F7D1900E6E7AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +390,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PD94K2S3RY;
 				INFOPLIST_FILE = Smack/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Square-Built.Smack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -373,7 +409,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PD94K2S3RY;
 				INFOPLIST_FILE = Smack/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Square-Built.Smack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
