@@ -15,6 +15,11 @@
 		B5110382213F7D1B00E6E7AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5110380213F7D1B00E6E7AB /* LaunchScreen.storyboard */; };
 		B511038D213F8CA300E6E7AB /* LeftSideMenuNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B511038C213F8CA300E6E7AB /* LeftSideMenuNavController.swift */; };
 		B511038F21458C6C00E6E7AB /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B511038E21458C6C00E6E7AB /* ChannelVC.swift */; };
+		B511039121459BE900E6E7AB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B511039021459BE900E6E7AB /* GradientView.swift */; };
+		B51103932145A2A800E6E7AB /* ProfileIconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51103922145A2A800E6E7AB /* ProfileIconImage.swift */; };
+		B5B804EF2145AFF400367C71 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B804EE2145AFF400367C71 /* ChannelCell.swift */; };
+		B5B804F12145B49200367C71 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B804F02145B49200367C71 /* RoundedButton.swift */; };
+		B5B804F32145B65000367C71 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B804F22145B65000367C71 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 		B5110383213F7D1B00E6E7AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B511038C213F8CA300E6E7AB /* LeftSideMenuNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuNavController.swift; sourceTree = "<group>"; };
 		B511038E21458C6C00E6E7AB /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		B511039021459BE900E6E7AB /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		B51103922145A2A800E6E7AB /* ProfileIconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconImage.swift; sourceTree = "<group>"; };
+		B5B804EE2145AFF400367C71 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		B5B804F02145B49200367C71 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		B5B804F22145B65000367C71 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		EBBC27F6C64032EE44CF2836 /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +100,7 @@
 			children = (
 				B5110379213F7D1900E6E7AB /* ChatVC.swift */,
 				B511038E21458C6C00E6E7AB /* ChannelVC.swift */,
+				B5B804F22145B65000367C71 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -98,6 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				B511038C213F8CA300E6E7AB /* LeftSideMenuNavController.swift */,
+				B511039021459BE900E6E7AB /* GradientView.swift */,
+				B51103922145A2A800E6E7AB /* ProfileIconImage.swift */,
+				B5B804EE2145AFF400367C71 /* ChannelCell.swift */,
+				B5B804F02145B49200367C71 /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +256,11 @@
 			files = (
 				B511038F21458C6C00E6E7AB /* ChannelVC.swift in Sources */,
 				B511037A213F7D1900E6E7AB /* ChatVC.swift in Sources */,
+				B51103932145A2A800E6E7AB /* ProfileIconImage.swift in Sources */,
+				B5B804F12145B49200367C71 /* RoundedButton.swift in Sources */,
+				B511039121459BE900E6E7AB /* GradientView.swift in Sources */,
+				B5B804F32145B65000367C71 /* LoginVC.swift in Sources */,
+				B5B804EF2145AFF400367C71 /* ChannelCell.swift in Sources */,
 				B511038D213F8CA300E6E7AB /* LeftSideMenuNavController.swift in Sources */,
 				B5110378213F7D1900E6E7AB /* AppDelegate.swift in Sources */,
 			);
