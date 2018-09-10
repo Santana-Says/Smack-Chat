@@ -19,6 +19,12 @@ class ChannelVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+	
+	//MARK: - IBActions
+	
+	@IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+		
+	}
 
 	@IBAction func profileBtnAction(_ sender: Any) {
 		performSegue(withIdentifier: "LoginVCSegue", sender: nil)

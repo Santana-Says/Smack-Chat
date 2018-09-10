@@ -33,6 +33,7 @@ class LoginVC: UIViewController {
 	}
 	
 	@IBAction func signUpBtnAction(_ sender: Any) {
+		performSegue(withIdentifier: "CreateProfileVCSegue", sender: nil)
 	}
 	
 	@IBAction func closeBtnAction(_ sender: Any) {
