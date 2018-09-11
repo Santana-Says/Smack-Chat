@@ -10,11 +10,15 @@ import Foundation
 
 typealias CompletionHandler = (_ success: Bool) -> ()
 
+//SEGUES
+let UNWIND = "unwindToChannelVC"
+
 //URL CONSTANTS
 
 let BASE_URL = "https://smack-chating.herokuapp.com/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
 let URL_LOGIN = "\(BASE_URL)account/login"
+let URL_USER_ADD = "\(BASE_URL)user/add"
 
 //USER DEFAULTS
 

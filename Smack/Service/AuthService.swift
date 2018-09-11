@@ -84,5 +84,30 @@ class AuthService {
 		}
 	}
 	
+	func createUser(name: String, email: String, avatarName: String, avatarColor: String, completion: @escaping CompletionHandler) {
+		let email = email.lowercased()
+		let body: [String: Any] = [
+			"email": email,
+			"name": name,
+			"avatarName": avatarName,
+			"avatarColor": avatarColor
+		]
+		let header = [
+			"Authorization": "Bearer \(AuthService.instance.authToken)",
+			"Content-Type": "application/json; charset=utf-8"
+		]
+		
+		Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseObject { (response: DataResponse<UserDataService>) in
+			if let user = response.result.value {
+				print("Fully created user!")
+				print("Current user is \(user.name)")
+				completion(true)
+			} else {
+				print(response.result.error as Any)
+				completion(false)
+			}
+		}
+	}
+	
 	
 }

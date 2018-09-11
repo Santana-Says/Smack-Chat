@@ -20,6 +20,12 @@ class ChannelVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		loadCurrentUser()
+	}
+	
 	//MARK: - IBActions
 	
 	@IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
@@ -28,6 +34,14 @@ class ChannelVC: UIViewController {
 
 	@IBAction func profileBtnAction(_ sender: Any) {
 		performSegue(withIdentifier: "LoginVCSegue", sender: nil)
+	}
+	
+	func loadCurrentUser() {
+		userNameLbl.text = UserDataService.instance.name == "" ? "Login" : UserDataService.instance.name
+		userIconImg.image = UserDataService.instance.avatarName == "" ? UIImage(named: "menuProfileIcon") : UIImage(named: UserDataService.instance.avatarName)
+//		if let color: String = UserDataService.instance.avaterColor, color != "" {
+//			userIconImg.backgroundColor = UIColor(red: color[0], green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
+//		}
 	}
 	
 }

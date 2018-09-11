@@ -26,6 +26,7 @@
 		B5B804FC21474C4E00367C71 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B804FB21474C4E00367C71 /* AuthService.swift */; };
 		B5B804FF21474D0B00367C71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B804FE21474D0B00367C71 /* Constants.swift */; };
 		B5D1607421476F7E00080329 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1607321476F7E00080329 /* UserProfile.swift */; };
+		B5D160762147790700080329 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D160752147790700080329 /* UserDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		B5B804FB21474C4E00367C71 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B5B804FE21474D0B00367C71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5D1607321476F7E00080329 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		B5D160752147790700080329 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		BE00FFCCDB4C2CB7B16EEBCC /* Pods_Smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				B5B804FB21474C4E00367C71 /* AuthService.swift */,
+				B5D160752147790700080329 /* UserDataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				B5B804FC21474C4E00367C71 /* AuthService.swift in Sources */,
 				B5B804F32145B65000367C71 /* LoginVC.swift in Sources */,
 				B5B804EF2145AFF400367C71 /* ChannelCell.swift in Sources */,
+				B5D160762147790700080329 /* UserDataService.swift in Sources */,
 				B511038D213F8CA300E6E7AB /* LeftSideMenuNavController.swift in Sources */,
 				B5110378213F7D1900E6E7AB /* AppDelegate.swift in Sources */,
 				B5B804FF21474D0B00367C71 /* Constants.swift in Sources */,
@@ -454,7 +458,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PD94K2S3RY;
 				INFOPLIST_FILE = Smack/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Square-Built.Smack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -470,7 +477,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PD94K2S3RY;
 				INFOPLIST_FILE = Smack/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Square-Built.Smack";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

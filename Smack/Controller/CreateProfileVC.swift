@@ -16,6 +16,11 @@ class CreateProfileVC: UIViewController {
 	@IBOutlet weak var emailField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
 	
+	//MARK: - Variables
+	
+	var avatarName = "menuProfileIcon"
+	var avatarColor = "[0.5, 0.5, 0.5, 1]"
+	
 	//MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -27,7 +32,7 @@ class CreateProfileVC: UIViewController {
 	//MARK: - IBActions
 
 	@IBAction func closeBtnAction(_ sender: Any) {
-		performSegue(withIdentifier: "unwindToChannelVC", sender: nil)
+		performSegue(withIdentifier: UNWIND, sender: nil)
 	}
 	
 	@IBAction func chooseAvatarBtnAction(_ sender: Any) {
@@ -38,6 +43,7 @@ class CreateProfileVC: UIViewController {
 	}
 	
 	@IBAction func createAccountBtnAction(_ sender: Any) {
+		guard let name = usernameField.text, usernameField.text != "" else {return}
 		guard let email = emailField.text, emailField.text != "" else {return}
 		guard let pass = passwordField.text, passwordField.text != "" else {return}
 		
@@ -45,6 +51,11 @@ class CreateProfileVC: UIViewController {
 			if success {
 				AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
 					if success {
+						AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
+							if success {
+								self.performSegue(withIdentifier: UNWIND, sender: nil)
+							}
+						})
 					}
 				})
 			}
