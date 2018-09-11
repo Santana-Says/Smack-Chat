@@ -38,5 +38,13 @@ class CreateProfileVC: UIViewController {
 	}
 	
 	@IBAction func createAccountBtnAction(_ sender: Any) {
+		guard let email = emailField.text, emailField.text != "" else {return}
+		guard let pass = passwordField.text, passwordField.text != "" else {return}
+		
+		AuthService.instance.registerUser(email: email, password: pass) { (success) in
+			if success {
+				print("Successfully registered user!")
+			}
+		}
 	}
 }
