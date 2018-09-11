@@ -10,5 +10,6 @@ target 'Smack' do
 	pod 'SwiftyJSON'
 	pod 'Socket.IO-Client-Swift'
 	pod 'SideMenu', '~> 4.0'
+	pod 'AlamofireObjectMapper', '~> 5.0'
 
 end

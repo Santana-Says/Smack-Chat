@@ -30,6 +30,12 @@ class LoginVC: UIViewController {
 	//MARK: - IBActions
 	
 	@IBAction func loginBtnAction(_ sender: Any) {
+		guard let email = userNameField.text, let pass = passwordField.text else {return}
+		
+		AuthService.instance.loginUser(email: email, password: pass) { (success) in
+			if success {
+			}
+		}
 	}
 	
 	@IBAction func signUpBtnAction(_ sender: Any) {

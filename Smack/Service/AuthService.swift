@@ -8,13 +8,15 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
+import AlamofireObjectMapper
 
 class AuthService {
 	static let instance = AuthService()
 	
 	let defaults = UserDefaults.standard
 	
-	var isLoggedIn: Bool {
+	private(set) var isLoggedIn: Bool {
 		get {
 			return defaults.bool(forKey: LOGGED_IN_KEY)
 		}
@@ -23,7 +25,7 @@ class AuthService {
 		}
 	}
 	
-	var authToken: String {
+	private(set) var authToken: String {
 		get {
 			return defaults.value(forKey: TOKEN_KEY) as! String
 		}
@@ -32,7 +34,7 @@ class AuthService {
 		}
 	}
 	
-	var userEmail: String {
+	private(set) var userEmail: String {
 		get {
 			return defaults.value(forKey: USER_EMAIL) as! String
 		}
@@ -41,20 +43,43 @@ class AuthService {
 		}
 	}
 
+	//MARK: - API REQUESTS
+	
 	func registerUser(email: String, password: String, completion: @escaping CompletionHandler) {
 		let email = email.lowercased()
-		let header = ["Content-Type": "application/json; charset=utf-8"]
 		let body: [String: Any] = [
 			"email": email,
 			"password": password
 		]
 		
-		Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+		Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { (response) in
 			if response.result.error == nil {
+				print("Successfully registered user!")
 				completion(true)
 			} else {
-				completion(false)
 				print(response.result.error as Any)
+				completion(false)
+			}
+		}
+	}
+	
+	func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
+		let email = email.lowercased()
+		let body: [String: Any] = [
+			"email": email,
+			"password": password
+		]
+		
+		Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseObject { (response: DataResponse<UserProfile>) in
+			if let user = response.result.value {
+				self.authToken = user.token
+				self.userEmail = user.email
+				self.isLoggedIn = true
+				print("Successfully logged in user!")
+				completion(true)
+			} else {
+				print(response.result.error as Any)
+				completion(false)
 			}
 		}
 	}
