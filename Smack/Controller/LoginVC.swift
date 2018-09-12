@@ -12,8 +12,8 @@ class LoginVC: UIViewController {
 	
 	//MARK: - IBOutlets
 	
-	@IBOutlet weak var userNameField: UITextField!
-	@IBOutlet weak var passwordField: UITextField!
+	@IBOutlet weak var userNameField: BetterPlaceholderTextField!
+	@IBOutlet weak var passwordField: BetterPlaceholderTextField!
 	
 	//MARK: - Life Cycle
 	

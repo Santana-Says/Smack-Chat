@@ -37,8 +37,8 @@ class ChannelVC: UIViewController {
 	}
 	
 	func loadCurrentUser() {
-		userNameLbl.text = UserDataService.instance.name == "" ? "Login" : UserDataService.instance.name
-		userIconImg.image = UserDataService.instance.avatarName == "" ? UIImage(named: "menuProfileIcon") : UIImage(named: UserDataService.instance.avatarName)
+		userNameLbl.text = UserDataService.instance.name
+		userIconImg.image = UIImage(named: UserDataService.instance.avatarName)
 //		if let color: String = UserDataService.instance.avaterColor, color != "" {
 //			userIconImg.backgroundColor = UIColor(red: color[0], green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
 //		}

@@ -11,7 +11,11 @@ import Foundation
 typealias CompletionHandler = (_ success: Bool) -> ()
 
 //SEGUES
+
+let TO_LOGIN = "LoginVCSegue"
+let TO_CREATE_PROFILE = "CreateProfileVCSegue"
 let UNWIND = "unwindToChannelVC"
+let TO_AVATAR_PICKER = "AvatarVCSegue"
 
 //URL CONSTANTS
 
@@ -29,3 +33,12 @@ let USER_EMAIL = "userEmail"
 //HEADERS
 
 let HEADER = ["Content-Type": "application/json; charset=utf-8"]
+
+//NOTIFICATIONS
+
+let NOTIF_USER_DID_CHANGE = Notification.Name("notifUserDataChanged")
+
+//RANDOM
+
+let AVATAR_COUNT = 28
+

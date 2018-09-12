@@ -27,6 +27,9 @@
 		B5B804FF21474D0B00367C71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B804FE21474D0B00367C71 /* Constants.swift */; };
 		B5D1607421476F7E00080329 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1607321476F7E00080329 /* UserProfile.swift */; };
 		B5D160762147790700080329 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D160752147790700080329 /* UserDataService.swift */; };
+		B5D160792148A5CF00080329 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D160782148A5CF00080329 /* UIColor.swift */; };
+		B5D1607B2148B19200080329 /* BetterPlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1607A2148B19200080329 /* BetterPlaceholderTextField.swift */; };
+		B5D1607D2148BEA300080329 /* LoadingSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1607C2148BEA300080329 /* LoadingSpinnerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		B5B804FE21474D0B00367C71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5D1607321476F7E00080329 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		B5D160752147790700080329 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		B5D160782148A5CF00080329 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		B5D1607A2148B19200080329 /* BetterPlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterPlaceholderTextField.swift; sourceTree = "<group>"; };
+		B5D1607C2148BEA300080329 /* LoadingSpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSpinnerView.swift; sourceTree = "<group>"; };
 		BE00FFCCDB4C2CB7B16EEBCC /* Pods_Smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +112,7 @@
 		B5110376213F7D1900E6E7AB /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				B5D160772148A5B300080329 /* Extension */,
 				B5B804FD21474CF700367C71 /* Utility */,
 				B5B804FA21474C3800367C71 /* Service */,
 				B511038B213F8C3E00E6E7AB /* Model */,
@@ -141,6 +148,8 @@
 				B5B804EE2145AFF400367C71 /* ChannelCell.swift */,
 				B5B804F02145B49200367C71 /* RoundedButton.swift */,
 				B5B804F82145F7F300367C71 /* AvatarCell.swift */,
+				B5D1607A2148B19200080329 /* BetterPlaceholderTextField.swift */,
+				B5D1607C2148BEA300080329 /* LoadingSpinnerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +178,14 @@
 				B5B804FE21474D0B00367C71 /* Constants.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		B5D160772148A5B300080329 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B5D160782148A5CF00080329 /* UIColor.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,8 +318,11 @@
 				B511037A213F7D1900E6E7AB /* ChatVC.swift in Sources */,
 				B51103932145A2A800E6E7AB /* ProfileIconImage.swift in Sources */,
 				B5B804F12145B49200367C71 /* RoundedButton.swift in Sources */,
+				B5D160792148A5CF00080329 /* UIColor.swift in Sources */,
 				B511039121459BE900E6E7AB /* GradientView.swift in Sources */,
+				B5D1607B2148B19200080329 /* BetterPlaceholderTextField.swift in Sources */,
 				B5B804FC21474C4E00367C71 /* AuthService.swift in Sources */,
+				B5D1607D2148BEA300080329 /* LoadingSpinnerView.swift in Sources */,
 				B5B804F32145B65000367C71 /* LoginVC.swift in Sources */,
 				B5B804EF2145AFF400367C71 /* ChannelCell.swift in Sources */,
 				B5D160762147790700080329 /* UserDataService.swift in Sources */,

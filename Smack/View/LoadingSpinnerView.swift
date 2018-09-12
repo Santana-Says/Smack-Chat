@@ -8,14 +8,26 @@
 
 import UIKit
 
+@IBDesignable
 class LoadingSpinnerView: UIActivityIndicatorView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		setupView()
+	}
+	
+	override func prepareForInterfaceBuilder() {
+		setupView()
+	}
+	
+	func setupView() {
+		backgroundColor = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 0.7470569349)
+		color = #colorLiteral(red: 0.2039215686, green: 0.3803921569, blue: 0.7137254902, alpha: 1)
+		layer.cornerRadius = 10
+		clipsToBounds = true
+		activityIndicatorViewStyle = .whiteLarge
+		hidesWhenStopped = true
+	}
 
 }
