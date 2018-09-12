@@ -16,7 +16,7 @@ class UserDataService: Mappable {
 	private(set) var id = ""
 	private(set) var email = ""
 	private(set) var name = ""
-	private(set) var avatarName = ""
+	private(set) var avatarName = "menuProfileIcon"
 	private(set) var avaterColor = ""
 	
 	init() {
@@ -45,5 +45,13 @@ class UserDataService: Mappable {
 	
 	func setAvatarName(avatar name: String) {
 		avatarName = name
+	}
+	
+	func resetUserData() {
+		id = ""
+		email = ""
+		name = "Login"
+		avatarName = "menuProfileIcon"
+		avaterColor = ""
 	}
 }

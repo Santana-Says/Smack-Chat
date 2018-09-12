@@ -12,9 +12,11 @@ class CreateProfileVC: UIViewController {
 	
 	//MARK: - IBOutlets
 	
-	@IBOutlet weak var usernameField: UITextField!
-	@IBOutlet weak var emailField: UITextField!
-	@IBOutlet weak var passwordField: UITextField!
+	@IBOutlet weak var usernameField: BetterPlaceholderTextField!
+	@IBOutlet weak var emailField: BetterPlaceholderTextField!
+	@IBOutlet weak var passwordField: BetterPlaceholderTextField!
+	@IBOutlet weak var avatarIconImg: ProfileIconImage!
+	@IBOutlet weak var loadingIndicator: LoadingSpinnerView!
 	
 	//MARK: - Variables
 	
@@ -26,8 +28,15 @@ class CreateProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+		view.addGestureRecognizer(tapGesture)
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let avatarVC = segue.destination as? AvatarVC {
+			avatarVC.delegate = self
+		}
+	}
 	
 	//MARK: - IBActions
 
@@ -36,23 +45,30 @@ class CreateProfileVC: UIViewController {
 	}
 	
 	@IBAction func chooseAvatarBtnAction(_ sender: Any) {
-		performSegue(withIdentifier: "AvatarVCSegue", sender: nil)
+		performSegue(withIdentifier: TO_AVATAR_PICKER, sender: nil)
 	}
 	
 	@IBAction func generateAvatarColorBtnAction(_ sender: Any) {
+		UIView.animate(withDuration: 0.2) {
+			//CUSTOM EXTENSION
+			self.avatarIconImg.backgroundColor = UIColor.random
+		}
 	}
 	
 	@IBAction func createAccountBtnAction(_ sender: Any) {
+		loadingIndicator.startAnimating()
 		guard let name = usernameField.text, usernameField.text != "" else {return}
 		guard let email = emailField.text, emailField.text != "" else {return}
 		guard let pass = passwordField.text, passwordField.text != "" else {return}
 		
 		AuthService.instance.registerUser(email: email, password: pass) { (success) in
 			if success {
-				AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
+				AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
 					if success {
-						AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
+						AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
 							if success {
+								self.loadingIndicator.stopAnimating()
+								NotificationCenter.default.post(name: NOTIF_USER_DID_CHANGE, object: nil)
 								self.performSegue(withIdentifier: UNWIND, sender: nil)
 							}
 						})
@@ -61,4 +77,20 @@ class CreateProfileVC: UIViewController {
 			}
 		}
 	}
+	
+	//MARK: - Helpers
+	
+	@objc private func handleTap() {
+		view.endEditing(true)
+	}
 }
+
+extension CreateProfileVC: AvatarVCDelegate {
+	func avatarVC(setAvatar imageName: String) {
+		avatarIconImg.image = UIImage(named: imageName)
+		avatarName = imageName
+	}
+}
+
+
+
