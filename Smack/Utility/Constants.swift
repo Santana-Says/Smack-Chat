@@ -16,6 +16,7 @@ let TO_LOGIN = "LoginVCSegue"
 let TO_CREATE_PROFILE = "CreateProfileVCSegue"
 let UNWIND = "unwindToChannelVC"
 let TO_AVATAR_PICKER = "AvatarVCSegue"
+let TO_PROFILE = "ProfileVCSegue"
 
 //URL CONSTANTS
 

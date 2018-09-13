@@ -48,7 +48,17 @@ class UserDataService: Mappable {
 		avaterColor = color
 	}
 	
-	func returnUIColor() -> UIColor {
+	func logoutUser() {
+		self.id = ""
+		self.email = ""
+		self.name = ""
+		self.avatarName = ""
+		self.avaterColor = ""
+		
+		AuthService.instance.logoutUser()
+	}
+	
+	func getBackgroundColor() -> UIColor {
 		let scanner = Scanner(string: avaterColor)
 		let skipped = CharacterSet(charactersIn: "[], ]")
 		let comma = CharacterSet(charactersIn: ",")

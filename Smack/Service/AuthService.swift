@@ -41,6 +41,14 @@ class AuthService {
 			defaults.set(newValue, forKey: USER_EMAIL)
 		}
 	}
+	
+	//MARK: - Helpers
+	
+	func logoutUser() {
+		isLoggedIn = false
+		userEmail = ""
+		authToken = ""
+	}
 
 	//MARK: - API REQUESTS
 	

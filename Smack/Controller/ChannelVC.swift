@@ -18,13 +18,8 @@ class ChannelVC: UIViewController {
         super.viewDidLoad()
 
 		NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NOTIF_USER_DID_CHANGE, object: nil)
+		checkForUser()
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
-//		loadCurrentUser()
-	}
 	
 	//MARK: - IBActions
 	
@@ -33,21 +28,27 @@ class ChannelVC: UIViewController {
 	}
 
 	@IBAction func profileBtnAction(_ sender: Any) {
-		performSegue(withIdentifier: "LoginVCSegue", sender: nil)
+		if AuthService.instance.isLoggedIn {
+			performSegue(withIdentifier: TO_PROFILE, sender: nil)
+		} else {
+			performSegue(withIdentifier: TO_LOGIN, sender: nil)
+		}
 	}
 	
 	@objc func userDataDidChange(_ notif: Notification) {
+		checkForUser()
+	}
+	
+	func checkForUser() {
 		if AuthService.instance.isLoggedIn {
 			userNameLbl.text = UserDataService.instance.name
 			userIconImg.image = UIImage(named: UserDataService.instance.avatarName)
-			userIconImg.backgroundColor = UserDataService.instance.returnUIColor()
+			userIconImg.backgroundColor = UserDataService.instance.getBackgroundColor()
 		} else {
 			userNameLbl.text = "Login"
 			userIconImg.image = UIImage(named: "menuProfileIcon")
 			userIconImg.backgroundColor = UIColor.clear
 		}
 	}
-	
-	
 	
 }
