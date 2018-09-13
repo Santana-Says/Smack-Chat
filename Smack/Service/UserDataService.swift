@@ -16,7 +16,7 @@ class UserDataService: Mappable {
 	private(set) var id = ""
 	private(set) var email = ""
 	private(set) var name = ""
-	private(set) var avatarName = "menuProfileIcon"
+	private(set) var avatarName = ""
 	private(set) var avaterColor = ""
 	
 	init() {
@@ -35,23 +35,57 @@ class UserDataService: Mappable {
 		avaterColor	<- map["avatarColor"]
 	}
 	
-//	func setUserData(id: String, email: String, name: String, avatarName: String, color: String) {
-//		self.id = id
-//		self.email = email
-//		self.name = name
-//		self.avatarName = avatarName
-//		self.avaterColor = color
-//	}
+	func setUserData(id: String, email: String, name: String, avatarName: String, color: String) {
+		self.id = id
+		self.email = email
+		self.name = name
+		self.avatarName = avatarName
+		self.avaterColor = color
+	}
 	
-	func setAvatarName(avatar name: String) {
+	func setAvatar(name: String, color: String) {
 		avatarName = name
+		avaterColor = color
 	}
 	
-	func resetUserData() {
-		id = ""
-		email = ""
-		name = "Login"
-		avatarName = "menuProfileIcon"
-		avaterColor = ""
+	func returnUIColor() -> UIColor {
+		let scanner = Scanner(string: avaterColor)
+		let skipped = CharacterSet(charactersIn: "[], ]")
+		let comma = CharacterSet(charactersIn: ",")
+		scanner.charactersToBeSkipped = skipped
+		
+		var r, g, b, a: NSString?
+		
+		scanner.scanUpToCharacters(from: comma, into: &r)
+		scanner.scanUpToCharacters(from: comma, into: &g)
+		scanner.scanUpToCharacters(from: comma, into: &b)
+		scanner.scanUpToCharacters(from: comma, into: &a)
+		
+		let defaultColor = UIColor.lightGray
+		
+		guard let rUnwrapped = r else {return defaultColor}
+		guard let gUnwrapped = r else {return defaultColor}
+		guard let bUnwrapped = r else {return defaultColor}
+		guard let aUnwrapped = r else {return defaultColor}
+		
+		let rFloat = CGFloat(rUnwrapped.doubleValue)
+		let gFloat = CGFloat(gUnwrapped.doubleValue)
+		let bFloat = CGFloat(bUnwrapped.doubleValue)
+		let aFloat = CGFloat(aUnwrapped.doubleValue)
+		
+		return UIColor(red: rFloat, green: gFloat, blue: bFloat, alpha: aFloat)		
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+

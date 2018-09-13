@@ -99,7 +99,7 @@ class AuthService {
 		Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseObject { (response: DataResponse<UserDataService>) in
 			if let user = response.result.value {
 				print("Fully created user!")
-				print("Current user is \(user.name)")
+				UserDataService.instance.setUserData(id: user.id, email: user.email, name: user.name, avatarName: user.avatarName, color: user.avaterColor)
 				completion(true)
 			} else {
 				print(response.result.error as Any)

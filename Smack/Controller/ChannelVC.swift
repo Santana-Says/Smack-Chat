@@ -17,13 +17,13 @@ class ChannelVC: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+		NotificationCenter.default.addObserver(self, selector: #selector(userDataDidChange(_:)), name: NOTIF_USER_DID_CHANGE, object: nil)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
-		loadCurrentUser()
+//		loadCurrentUser()
 	}
 	
 	//MARK: - IBActions
@@ -36,12 +36,18 @@ class ChannelVC: UIViewController {
 		performSegue(withIdentifier: "LoginVCSegue", sender: nil)
 	}
 	
-	func loadCurrentUser() {
-		userNameLbl.text = UserDataService.instance.name
-		userIconImg.image = UIImage(named: UserDataService.instance.avatarName)
-//		if let color: String = UserDataService.instance.avaterColor, color != "" {
-//			userIconImg.backgroundColor = UIColor(red: color[0], green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: <#T##CGFloat#>)
-//		}
+	@objc func userDataDidChange(_ notif: Notification) {
+		if AuthService.instance.isLoggedIn {
+			userNameLbl.text = UserDataService.instance.name
+			userIconImg.image = UIImage(named: UserDataService.instance.avatarName)
+			userIconImg.backgroundColor = UserDataService.instance.returnUIColor()
+		} else {
+			userNameLbl.text = "Login"
+			userIconImg.image = UIImage(named: "menuProfileIcon")
+			userIconImg.backgroundColor = UIColor.clear
+		}
 	}
+	
+	
 	
 }

@@ -49,9 +49,15 @@ class CreateProfileVC: UIViewController {
 	}
 	
 	@IBAction func generateAvatarColorBtnAction(_ sender: Any) {
+		let max = CGFloat(UInt32.max)
+		let red = CGFloat(arc4random()) / max
+		let green = CGFloat(arc4random()) / max
+		let blue = CGFloat(arc4random()) / max
+		
+		avatarColor = "[\(red), \(green), \(blue), 1]"
+		
 		UIView.animate(withDuration: 0.2) {
-			//CUSTOM EXTENSION
-			self.avatarIconImg.backgroundColor = UIColor.random
+			self.avatarIconImg.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1)
 		}
 	}
 	
@@ -63,9 +69,9 @@ class CreateProfileVC: UIViewController {
 		
 		AuthService.instance.registerUser(email: email, password: pass) { (success) in
 			if success {
-				AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
+				AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
 					if success {
-						AuthService.instance.loginUser(email: email, password: pass, completion: { (success) in
+						AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
 							if success {
 								self.loadingIndicator.stopAnimating()
 								NotificationCenter.default.post(name: NOTIF_USER_DID_CHANGE, object: nil)
@@ -89,6 +95,10 @@ extension CreateProfileVC: AvatarVCDelegate {
 	func avatarVC(setAvatar imageName: String) {
 		avatarIconImg.image = UIImage(named: imageName)
 		avatarName = imageName
+		
+		if avatarName.contains("light") {
+			avatarIconImg.backgroundColor = UIColor.lightGray
+		}
 	}
 }
 
