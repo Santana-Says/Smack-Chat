@@ -22,20 +22,16 @@ open class SideMenuTransition: UIPercentDrivenInteractiveTransition {
         }
     }
     fileprivate var menuWidth: CGFloat {
-        get {
-            let overriddenWidth = menuViewController?.menuWidth ?? 0
-            if overriddenWidth > CGFloat.ulpOfOne {
-                return overriddenWidth
-            }
-            return sideMenuManager.menuWidth
+        let overriddenWidth = menuViewController?.menuWidth ?? 0
+        if overriddenWidth > CGFloat.ulpOfOne {
+            return overriddenWidth
         }
+        return sideMenuManager.menuWidth
     }
     internal weak var sideMenuManager: SideMenuManager!
     internal weak var mainViewController: UIViewController?
     internal weak var menuViewController: UISideMenuNavigationController? {
-        get {
-            return presentDirection == .left ? sideMenuManager.menuLeftNavigationController : sideMenuManager.menuRightNavigationController
-        }
+        return presentDirection == .left ? sideMenuManager.menuLeftNavigationController : sideMenuManager.menuRightNavigationController
     }
     internal var presentDirection: UIRectEdge = .left
     internal weak var tapView: UIView? {
@@ -67,8 +63,8 @@ open class SideMenuTransition: UIPercentDrivenInteractiveTransition {
     required public init(sideMenuManager: SideMenuManager) {
         super.init()
         
-        NotificationCenter.default.addObserver(self, selector:#selector(handleNotification), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        NotificationCenter.default.addObserver(self, selector:#selector(handleNotification), name: NSNotification.Name.UIApplicationWillChangeStatusBarFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(handleNotification), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(handleNotification), name: UIApplication.willChangeStatusBarFrameNotification, object: nil)
         self.sideMenuManager = sideMenuManager
     }
     
@@ -77,9 +73,7 @@ open class SideMenuTransition: UIPercentDrivenInteractiveTransition {
     }
     
     fileprivate static var visibleViewController: UIViewController? {
-        get {
-            return getVisibleViewController(forViewController: UIApplication.shared.keyWindow?.rootViewController)
-        }
+        return getVisibleViewController(forViewController: UIApplication.shared.keyWindow?.rootViewController)
     }
     
     fileprivate class func getVisibleViewController(forViewController: UIViewController?) -> UIViewController? {
@@ -373,7 +367,7 @@ open class SideMenuTransition: UIPercentDrivenInteractiveTransition {
             originalSuperview.addSubview(mainViewController.view)
         }
         
-        if notification.name == NSNotification.Name.UIApplicationDidEnterBackground {
+        if notification.name == UIApplication.didEnterBackgroundNotification {
             hideMenuStart().hideMenuComplete()
             menuViewController?.dismiss(animated: false, completion: nil)
             return
@@ -398,7 +392,9 @@ extension SideMenuTransition: UIViewControllerAnimatedTransitioning {
     
     // animate a change from one viewcontroller to another
     open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
+		
+		completionCurve = sideMenuManager.menuAnimationCompletionCurve
+		
         // get reference to our fromView, toView and the container view that we should perform the transition in
         let container = transitionContext.containerView
         // prevent any other menu gestures from firing
@@ -492,7 +488,7 @@ extension SideMenuTransition: UIViewControllerAnimatedTransitioning {
                     self.tapView = tapView
                 }
                 if let statusBarView = self.statusBarView {
-                    container.bringSubview(toFront: statusBarView)
+                    container.bringSubviewToFront(statusBarView)
                 }
                 
                 return

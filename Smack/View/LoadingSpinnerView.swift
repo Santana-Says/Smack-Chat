@@ -26,7 +26,7 @@ class LoadingSpinnerView: UIActivityIndicatorView {
 		color = #colorLiteral(red: 0.2039215686, green: 0.3803921569, blue: 0.7137254902, alpha: 1)
 		layer.cornerRadius = 10
 		clipsToBounds = true
-		activityIndicatorViewStyle = .whiteLarge
+		style = .whiteLarge
 		hidesWhenStopped = true
 	}
 

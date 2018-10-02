@@ -4,16 +4,16 @@ PODS:
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.3)
   - ObjectMapper (3.3.0)
-  - SideMenu (4.0.0)
+  - SideMenu (5.0.1)
   - Socket.IO-Client-Swift (13.3.0):
     - Starscream (~> 3.0.2)
   - Starscream (3.0.5)
-  - SwiftyJSON (4.1.0)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - Alamofire
-  - AlamofireObjectMapper (~> 5.0)
-  - SideMenu (~> 4.0)
+  - AlamofireObjectMapper
+  - SideMenu
   - Socket.IO-Client-Swift
   - SwiftyJSON
 
@@ -31,11 +31,11 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  SideMenu: 70ee5657df63ec3382660ec4ef470bf1cf5db07d
+  SideMenu: 87efd943737bb83aedf0358884d09fcf5576636d
   Socket.IO-Client-Swift: 0afb192a562db90d50e3f7f7421c06925a3f0179
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 4dd824f857e9d64ed86d29673f3e1aa36d0c15c0
+PODFILE CHECKSUM: 1500f62483291c758c1f93f795ef820d9da6d6cf
 
 COCOAPODS: 1.5.0

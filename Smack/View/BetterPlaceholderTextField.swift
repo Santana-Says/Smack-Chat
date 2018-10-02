@@ -24,7 +24,7 @@ class BetterPlaceholderTextField: UITextField {
 	
 	func setupView() {
 		if let placeholder = placeholder {
-			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: placeHolderColor])
+			attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
 		}
 	}
 }
